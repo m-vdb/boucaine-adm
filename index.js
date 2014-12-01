@@ -1,39 +1,16 @@
 var http = require("http"),
-    url = require("url"),
     path = require("path"),
-    fs = require("fs")
     port = process.env.PORT || 3000;
- 
+
 var root = path.join(process.cwd(), 'public');
+var static = require('node-static');
+var file = new static.Server(root);
 
 http.createServer(function(request, response) {
- 
-  var uri = url.parse(request.url).pathname,
-      filename = path.join(root, uri);
-  
-  fs.exists(filename, function(exists) {
-    if(!exists) {
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write("404 Not Found\n");
-      response.end();
-      return;
-    }
- 
-    if (fs.statSync(filename).isDirectory()) filename += '/index.html';
- 
-    fs.readFile(filename, "binary", function(err, file) {
-      if(err) {        
-        response.writeHead(500, {"Content-Type": "text/plain"});
-        response.write(err + "\n");
-        response.end();
-        return;
-      }
- 
-      response.writeHead(200);
-      response.write(file, "binary");
-      response.end();
-    });
-  });
+  // serve files
+  request.addListener('end', function () {
+    file.serve(request, response);
+  }).resume();
 }).listen(port);
  
 console.log("Static file server running at http://localhost:" + port + "/");
