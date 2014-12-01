@@ -2,9 +2,7 @@ var gulp = require("gulp"),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
     partialify = require('partialify'),
-    minify_css = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    minify_css = require('gulp-minify-css');;
 
 
 var vendors = {
@@ -58,17 +56,10 @@ gulp.task('vendors:fonts', function () {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', function() {
-  gulp.src(['app.js'], {cwd: 'public'})
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public'));
-});
-
 gulp.task('vendors', ['vendors:styles', 'vendors:fonts'])
 gulp.task('app', ['app:scripts', 'app:styles'])
 
-gulp.task('default', ['app', 'vendors', 'build']);
+gulp.task('default', ['app', 'vendors']);
 
 
 gulp.task('watch', function() {
