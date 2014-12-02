@@ -10,6 +10,7 @@ var gulp = require("gulp"),
 var vendors = {
   styles: [
     'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/angular-growl/build/angular-growl.min.css',
   ],
   fonts: [
     'node_modules/bootstrap/dist/fonts/*'

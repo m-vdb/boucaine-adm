@@ -17,6 +17,8 @@
   "dependencies": {
     "angular": "^1.3.4",
     "angular-bootstrap": "^0.11.0",
+    "angular-extended-notifications": "^1.0.4",
+    "angular-growl": "https://github.com/marcorinck/angular-growl/archive/v0.4.0.tar.gz",
     "angular-ui-router": "^0.2.11",
     "bootstrap": "^3.3.1",
     "browserify": "^5.13.1",

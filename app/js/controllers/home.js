@@ -1,12 +1,12 @@
-module.exports = function ($scope, Restangular) {
+module.exports = function ($scope, Restangular, growl) {
   $scope.verify = function () {
     Restangular.one("codes", $scope.code).post().then(
       function () {
-        console.log("success");
+        growl.addSuccessMessage("Code valide !");
       },
       function (xhr) {
         var err = (xhr.data && xhr.data.message) ? xhr.data.message : "Erreur inconnue.";
-        console.log(err);
+        growl.addErrorMessage(err);
       }
     );
   };
