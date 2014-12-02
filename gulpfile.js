@@ -71,7 +71,7 @@ gulp.task('app', ['app:scripts', 'app:styles'])
 gulp.task('default', ['app', 'vendors', 'build']);
 
 
-gulp.task('watch', function() {
+gulp.task('watch', ["default"], function() {
   gulp.watch(app.styles, ['app:styles']);
-  gulp.watch(app.scripts, ['app:scripts']);
+  gulp.watch(app.scripts, ['app:scripts', 'build']);
 });
