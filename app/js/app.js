@@ -27,6 +27,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
       .state('home', {
         url: "/",
         template: require("./partials/home.html")
+      })
+      .state('print', {
+        url: "/imprimer",
+        template: require("./partials/print.html")
       });
   }
 ]);
