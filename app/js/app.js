@@ -19,12 +19,14 @@ app.config(['RestangularProvider',
   }
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/");
+app.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
 
-  $stateProvider
-    .state('home', {
-      url: "/",
-      template: require("./partials/home.html")
-    });
-});
+    $stateProvider
+      .state('home', {
+        url: "/",
+        template: require("./partials/home.html")
+      });
+  }
+]);
