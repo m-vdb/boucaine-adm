@@ -58,7 +58,7 @@ gulp.task('vendors:fonts', function () {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', function() {
+gulp.task('build', ['app:scripts'], function() {
   gulp.src(['app.js'], {cwd: 'public'})
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
@@ -68,10 +68,10 @@ gulp.task('build', function() {
 gulp.task('vendors', ['vendors:styles', 'vendors:fonts'])
 gulp.task('app', ['app:scripts', 'app:styles'])
 
-gulp.task('default', ['app', 'vendors', 'build']);
+gulp.task('default', ['app:styles', 'vendors', 'build']);
 
 
 gulp.task('watch', ["default"], function() {
   gulp.watch(app.styles, ['app:styles']);
-  gulp.watch(app.scripts, ['app:scripts', 'build']);
+  gulp.watch(app.scripts, ['build']);
 });
