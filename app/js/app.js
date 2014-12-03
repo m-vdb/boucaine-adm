@@ -15,7 +15,7 @@ var app = angular.module('main', [
   'ui.bootstrap',
   'angular-growl'
 ]);
-var api = "http://localhost:8080"; //"http://boucaine-api.herokuapp.com";
+var api = "http://boucaine-api.herokuapp.com";
 
 // controllers
 app.controller('HomeController', ['$scope', 'Restangular', 'growl', homeController]);
