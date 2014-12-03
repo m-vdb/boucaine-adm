@@ -48,6 +48,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
 ]);
 
 app.config(['growlProvider', function(growlProvider) {
-  growlProvider.globalTimeToLive({error: 5000});
+  growlProvider.globalTimeToLive({error: 5000, success: 10000});
   growlProvider.globalPosition('top-right');
+  growlProvider.globalDisableCountDown(true);
 }]);
