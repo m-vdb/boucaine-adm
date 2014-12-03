@@ -66,10 +66,8 @@ gulp.task('build', ['app:scripts'], function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('vendors', ['vendors:styles', 'vendors:fonts'])
-gulp.task('app', ['app:scripts', 'app:styles'])
-
-gulp.task('default', ['app:styles', 'vendors', 'build']);
+gulp.task('styles', ['app:styles', 'vendors:styles', 'vendors:fonts']);
+gulp.task('default', ['build', 'styles']);
 
 
 gulp.task('watch', ["default"], function() {
