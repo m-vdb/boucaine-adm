@@ -56,7 +56,7 @@ gulp.task('vendors:styles', function () {
 
 gulp.task('vendors:fonts', function () {
   gulp.src(vendors.fonts)
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('public/fonts'));
 });
 
 gulp.task('build', ['app:scripts'], function() {
