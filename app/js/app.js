@@ -4,7 +4,7 @@ require("angular");
 require("restangular");
 require("angular-ui-router");
 require("angular-bootstrap");
-require("angular-growl"); // TODO: fork it and make it requireable
+require("angular-growl-v2");
 
 var homeController = require('./controllers/home.js');
 
@@ -46,3 +46,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
       });
   }
 ]);
+
+app.config(['growlProvider', function(growlProvider) {
+  growlProvider.globalTimeToLive({error: 5000});
+  growlProvider.globalPosition('top-right');
+}]);
