@@ -7,6 +7,7 @@ require("angular-bootstrap");
 require("angular-growl-v2");
 
 var homeController = require('./controllers/home.js');
+var printController = require('./controllers/print.js');
 
 var app = angular.module('main', [
   'ui.router',
@@ -18,6 +19,7 @@ var api = "http://boucaine-api.herokuapp.com";
 
 // controllers
 app.controller('HomeController', ['$scope', 'Restangular', 'growl', homeController]);
+app.controller('PrintController', ['$scope', 'Restangular', 'growl', printController]);
 
 // config
 app.config(['RestangularProvider',
@@ -42,7 +44,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('print', {
         url: "/imprimer",
-        template: require("./partials/print.html")
+        template: require("./partials/print.html"),
+        controller: 'PrintController'
       });
   }
 ]);

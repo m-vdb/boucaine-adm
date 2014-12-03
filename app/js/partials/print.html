@@ -1,1 +1,23 @@
-<p>Print</p>
+<header>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 text-center header-block">
+      <h2>Imprimer des QR Code</h2>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-5 text-center">
+      <form role="form" class="form form-inline">
+        <p>
+          Générer
+          <select ng-model="amount" class="form-control" ng-options="k for k in [10, 30, 50]"></select>
+          QR code d’une valeur de
+          <select ng-model="value" class="form-control" ng-options="k for k in [1, 2, 3]"></select>
+          pizza(s)
+          <button class="btn btn-success btn-sm" ng-click="generateCodes()">Ok <i class="glyphicon glyphicon-ok"></i></button>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
