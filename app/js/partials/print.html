@@ -11,13 +11,27 @@
       <form role="form" class="form form-inline">
         <p>
           Générer
-          <select ng-model="amount" class="form-control" ng-options="k for k in [10, 30, 50]"></select>
+          <select ng-model="amount" class="form-control" ng-options="k for k in [10, 30, 50]" ng-change="reset()"></select>
           QR code d’une valeur de
-          <select ng-model="value" class="form-control" ng-options="k for k in [1, 2, 3]"></select>
+          <select ng-model="value" class="form-control" ng-options="k for k in [1, 2, 3]" ng-change="reset()"></select>
           pizza(s)
           <button class="btn btn-success btn-sm" ng-click="generateCodes()">Ok <i class="glyphicon glyphicon-ok"></i></button>
         </p>
       </form>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div ng-repeat="codeRow in codes" class="row">
+        <div ng-repeat="code in codeRow" class="col-md-3">
+          <div class="qrcode">
+            <qr text="code.hash"></qr>
+            <p>La Boucaine - <ng-pluralize count="value" when="{'one': '1 pizza', 'other': '{} pizzas'}"></ng-pluralize></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
