@@ -1,11 +1,11 @@
-<header>
+<header id="no-print-header">
   <div class="row">
     <div class="col-md-offset-3 col-md-6 text-center header-block">
       <h2>Imprimer des QR Code</h2>
     </div>
   </div>
 </header>
-<section>
+<section id="no-print-form">
   <div class="row">
     <div class="col-md-offset-3 col-md-5 text-center">
       <form role="form" class="form form-inline">
@@ -21,13 +21,13 @@
     </div>
   </div>
 </section>
-<section>
+<section id="printable">
   <div class="row">
     <div class="col-md-12 text-center">
       <div ng-repeat="codeRow in codes" class="row">
-        <div ng-repeat="code in codeRow" class="col-md-3">
+        <div ng-repeat="code in codeRow" class="col-md-3 qrcode-col">
           <div class="qrcode">
-            <qr text="code.hash"></qr>
+            <qr class="qrcode-image" text="code.hash"></qr>
             <p>La Boucaine - <ng-pluralize count="value" when="{'one': '1 pizza', 'other': '{} pizzas'}"></ng-pluralize></p>
           </div>
         </div>

@@ -5,3 +5,22 @@
 section {
     margin-top: 30px;
 }
+
+.qrcode-image canvas {
+    width: 75%;
+}
+
+@media print {
+    #navigation, #no-print-header, #no-print-form {
+        display: none !important;
+    }
+    .qrcode-col {
+        width: 150px;
+        float: left;
+        margin-left: 20px;
+    }
+    .qrcode-image canvas {
+        width: 150px;
+        height: 150px;
+    }
+}
