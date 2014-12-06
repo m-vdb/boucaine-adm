@@ -5,6 +5,7 @@ require("restangular");
 require("angular-ui-router");
 require("angular-bootstrap");
 require("angular-growl-v2");
+require("angular-qr");
 
 var homeController = require('./controllers/home.js');
 var printController = require('./controllers/print.js');
@@ -13,7 +14,8 @@ var app = angular.module('main', [
   'ui.router',
   'restangular',
   'ui.bootstrap',
-  'angular-growl'
+  'angular-growl',
+  'ja.qr'  // angular-qr
 ]);
 var api = "http://boucaine-api.herokuapp.com";
 
