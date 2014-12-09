@@ -17,7 +17,7 @@
   "dependencies": {
     "angular": "^1.3.4",
     "angular-bootstrap": "^0.11.0",
-    "angular-growl-v2": "git+https://github.com/m-vdb/angular-growl-2.git#198307ea4fc5adc8c435f062664fc1c458c2c1a3",
+    "angular-growl-v2": "git+https://github.com/JanStevens/angular-growl-2.git#7492254363582a923eb24620133dfd1ac060c0db",
     "angular-qr": "git+https://github.com/janantala/angular-qr.git#v0.2.0",
     "angular-ui-router": "^0.2.11",
     "bootstrap": "^3.3.1",
