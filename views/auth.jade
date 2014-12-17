@@ -5,17 +5,19 @@ html
     meta(charset="utf8")
     link(rel="stylesheet" type="text/css" href="public/vendors.css")
   body
-    h1 Login
-    - var errorClass = error ? "has-error" : ""
-    form(method="post")
-      .form-group(class=errorClass)
-        label(for="username") Nom d'utilisateur
-        input(id="username" type="text" name="username" class="form-control")
+    .row
+      .col-md-4.col-md-offset-4
+        h1 Login
+        - var errorClass = error ? "has-error" : ""
+        form(method="post")
+          .form-group(class=errorClass)
+            label(for="username") Nom d'utilisateur
+            input(id="username" type="text" name="username" class="form-control")
 
-      .form-group(class=errorClass)
-        label(for="password") Mot de passe
-        input(id="password" type="password" name="password" class="form-control")
+          .form-group(class=errorClass)
+            label(for="password") Mot de passe
+            input(id="password" type="password" name="password" class="form-control")
 
-      .form-group(class=errorClass)
-        span.help-block #{error}
-        button.btn.btn-success(type="submit") Se connecter
+          .form-group(class=errorClass)
+            span.help-block #{error}
+            button.btn.btn-success(type="submit") Se connecter
