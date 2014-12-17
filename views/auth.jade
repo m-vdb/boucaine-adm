@@ -6,10 +6,16 @@ html
     link(rel="stylesheet" type="text/css" href="public/vendors.css")
   body
     h1 Login
-    form
-      .form-group
+    - var errorClass = error ? "has-error" : ""
+    form(method="post")
+      .form-group(class=errorClass)
         label(for="username") Nom d'utilisateur
         input(id="username" type="text" name="username" class="form-control")
-      .form-group
+
+      .form-group(class=errorClass)
         label(for="password") Mot de passe
         input(id="password" type="password" name="password" class="form-control")
+
+      .form-group(class=errorClass)
+        span.help-block #{error}
+        button.btn.btn-success(type="submit") Se connecter

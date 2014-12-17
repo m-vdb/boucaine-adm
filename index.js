@@ -1,18 +1,24 @@
 var express = require('express'),
     session = require('cookie-session'),
-    jade = require('jade');
+    jade = require('jade'),
+    bodyParser = require('body-parser');
 
 var path = require("path"),
     port = process.env.PORT || 3000,
     secret = process.env.SECRET || "local",
     public = path.join(process.cwd(), 'public'),
-    apiRoute = process.env.API_ROUTE || "http://localhost:8080";
+    apiRoute = process.env.API_ROUTE || "http://localhost:8080",
+    admin = [
+      process.env.ADMIN_USERNAME || "admin",
+      process.env.ADMIN_PASSWORD || "password"
+    ];
 
 // config
 var app = express();
 app.engine('.jade', jade.__express);
 app.use(session({keys: [secret]}));
 app.use("/public", express.static(public));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // views
 app.get("/", auth, function (req, res) {
@@ -20,6 +26,16 @@ app.get("/", auth, function (req, res) {
 });
 app.get("/auth", function (req, res) {
   res.render('auth.jade');
+});
+app.post("/auth", function (req, res) {
+  if (req.body.username === admin[0] && req.body.password === admin[1]) {
+    req.session.uid = req.body.username;
+    res.redirect("/");
+  }
+  else {
+    delete req.session.uid;
+    res.render("auth.jade", {error: "Nom d'utilisateur ou mot de passe invalide."});
+  }
 });
 
 // listen
