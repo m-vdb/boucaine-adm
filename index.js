@@ -9,14 +9,13 @@ var path = require("path"),
 
 // config
 var app = express();
-app.engine('.html', jade.__express);
 app.engine('.jade', jade.__express);
 app.use(session({keys: [secret]}));
 app.use("/public", express.static(public));
 
 // views
 app.get("/", auth, function (req, res) {
-  res.render('index.html');
+  res.render('index.jade');
 });
 app.get("/auth", function (req, res) {
   res.render('auth.jade');
