@@ -5,7 +5,8 @@ var express = require('express'),
 var path = require("path"),
     port = process.env.PORT || 3000,
     secret = process.env.SECRET || "local",
-    public = path.join(process.cwd(), 'public');
+    public = path.join(process.cwd(), 'public'),
+    apiRoute = process.env.API_ROUTE || "http://localhost:8080";
 
 // config
 var app = express();
@@ -15,7 +16,7 @@ app.use("/public", express.static(public));
 
 // views
 app.get("/", auth, function (req, res) {
-  res.render('index.jade');
+  res.render('index.jade', {apiRoute: apiRoute});
 });
 app.get("/auth", function (req, res) {
   res.render('auth.jade');

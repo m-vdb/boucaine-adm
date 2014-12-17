@@ -17,7 +17,6 @@ var app = angular.module('main', [
   'angular-growl',
   'ja.qr'  // angular-qr
 ]);
-var api = "http://boucaine-api.herokuapp.com";
 
 // controllers
 app.controller('HomeController', ['$scope', 'Restangular', 'growl', homeController]);
@@ -26,7 +25,7 @@ app.controller('PrintController', ['$scope', 'Restangular', 'growl', printContro
 // config
 app.config(['RestangularProvider',
   function(RestangularProvider) {
-    RestangularProvider.setBaseUrl(api);
+    RestangularProvider.setBaseUrl(__apiRoute);
     RestangularProvider.setDefaultHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json'
