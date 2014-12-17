@@ -7,6 +7,7 @@ var path = require("path"),
     port = process.env.PORT || 3000,
     secret = process.env.SECRET || "local",
     public = path.join(process.cwd(), 'public'),
+    fonts = path.join(public, "fonts"),
     apiRoute = process.env.API_ROUTE || "http://localhost:8080",
     admin = [
       process.env.ADMIN_USERNAME || "admin",
@@ -18,6 +19,7 @@ var app = express();
 app.engine('.jade', jade.__express);
 app.use(session({keys: [secret]}));
 app.use("/public", express.static(public));
+app.use("/fonts", express.static(fonts));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // views
