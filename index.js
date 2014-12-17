@@ -1,16 +1,16 @@
-var http = require("http"),
-    path = require("path"),
+var path = require("path"),
     port = process.env.PORT || 3000;
 
 var root = path.join(process.cwd(), 'public');
-var static = require('node-static');
-var file = new static.Server(root);
+var express = require('express');
+var app = express();
 
-http.createServer(function(request, response) {
-  // serve files
-  request.addListener('end', function () {
-    file.serve(request, response);
-  }).resume();
-}).listen(port);
- 
-console.log("Static file server running at http://localhost:" + port + "/");
+var server = app.listen(port, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Listening at http://%s:%s', host, port)
+});
+
+app.use(express.static(root));
