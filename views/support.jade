@@ -1,7 +1,7 @@
 doctype html
 html(ng-app="main")
   head
-    title Pizza La Boucaine - Admin
+    title Pizza La Boucaine - Support
     meta(charset="utf8")
     link(rel="stylesheet" type="text/css" href="public/vendors.css")
     link(rel="stylesheet" type="text/css" href="public/style.css")
@@ -15,16 +15,11 @@ html(ng-app="main")
             span(class="icon-bar")
             span(class="icon-bar")
           a(class="navbar-brand" href="#") Pizza La Boucaine
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        #navbar.collapse.navbar-collapse
-          ul(class="nav navbar-nav")
-            li(ui-sref-active="active")
-              a(ui-sref="home") Vérifier un code promo
-            li(ui-sref-active="active")
-              a(ui-sref="print") Imprimer des QR Codes
 
-    div(growl)
-    div(ui-view)
-    script window.__apiRoute = "#{apiRoute}";
-    script(src="public/qrcode.min.js")
-    script(src="public/app.min.js")
+    .row-fluid(style="margin-top:10%;")
+      .col-md-2.col-md-offset-5
+        p
+          img(src="public/logo.png")
+        p
+          a(href="mailto:pizza.la.boucaine@gmail.com?Subject=Support%20Pizza%20La%20Boucaine").btn.btn-primary.
+            Contacter le support client

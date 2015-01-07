@@ -39,6 +39,9 @@ app.post("/auth", function (req, res) {
     res.render("auth.jade", {error: "Nom d'utilisateur ou mot de passe invalide."});
   }
 });
+app.get("/support", function (req, res) {
+  res.render('support.jade', {});
+});
 
 // listen
 var server = app.listen(port, function () {
