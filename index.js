@@ -42,6 +42,12 @@ app.post("/auth", function (req, res) {
 app.get("/support", function (req, res) {
   res.render('support.jade', {});
 });
+app.get("/app", function (req, res) {
+  res.writeHead(302,
+    {Location: 'https://itunes.apple.com/fr/app/pizza-la-boucaine/id955355631'}
+  );
+  res.end();
+});
 
 // listen
 var server = app.listen(port, function () {
